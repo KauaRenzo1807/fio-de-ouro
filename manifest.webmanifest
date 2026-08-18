@@ -1,0 +1,21 @@
+{   
+    "id": "./",    
+    "name": "Fio de Ouro- sistema de ocorrências",
+    "short_name": "fio de ouro",
+    "start_url":"./index-desktop.html",
+    "display": "standalone",
+
+    "icons": [
+        {
+            "src": "./icons/icon-192.jpg",
+            "sizes": "192x192",
+            "type": "image/png"
+
+        },
+        {
+            "src": "./icons/icon-192.jpg",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}

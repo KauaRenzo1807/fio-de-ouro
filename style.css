@@ -1,0 +1,210 @@
+/* CONFIGURAÇÕES GERAIS - CORREÇÃO DE SINTAXE */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f4f6f8;
+  color: #333;
+  -webkit-tap-highlight-color: transparent; /* Remove lag visual de toque no celular */
+  line-height: 1.4;
+}
+
+/* CABEÇALHO MOBILE-FIRST */
+.cabecalho {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  background-color: #1f2937;
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.menu {
+  display: flex;
+  gap: 8px;
+  width: 100%;
+  overflow-x: auto; /* Permite deslizar os menus lateralmente se a tela for pequena */
+  padding-bottom: 4px;
+  -webkit-overflow-scrolling: touch;
+}
+
+.menu::-webkit-scrollbar {
+  display: none; /* Esconde a barra de rolagem feia no mobile */
+}
+
+.menu a {
+  color: #9ca3af;
+  text-decoration: none;
+  font-size: 14px;
+  padding: 8px 14px;
+  border-radius: 16px;
+  white-space: nowrap; /* Não quebra linha no menu */
+}
+
+.menu a.ativo {
+  color: white;
+  background-color: #374151;
+}
+
+/* CONTEÚDO */
+.conteudo {
+  padding: 16px;
+}
+
+h1 {
+  font-size: 20px;
+  margin-bottom: 16px;
+  color: #111827;
+}
+
+/* RESUMO EM GRID COMPACTO */
+.resumo {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.resumo-card {
+  background-color: white;
+  padding: 14px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  text-align: center;
+}
+
+.resumo-card h2 {
+  margin: 0;
+  font-size: 26px;
+}
+
+.resumo-card p {
+  margin-top: 4px;
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.resumo-card.critica {
+  border-left: 6px solid #dc2626;
+}
+
+/* FILTROS ADAPTADOS PARA TOQUE (MÍNIMO 48PX DE ALTURA) */
+.filtros {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: white;
+  padding: 14px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.filtros input,
+.filtros select {
+  width: 100%;
+  height: 48px; /* Altura ideal regulamentada para dedos */
+  padding: 0 12px;
+  font-size: 16px; /* Evita que o navegador dê zoom automático em inputs no iOS */
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: white;
+}
+
+.grupo-selecoes {
+  display: flex;
+  gap: 10px;
+}
+
+/* LISTA DE OCORRÊNCIAS EM FLUXO VERTICAL */
+.lista-ocorrencias {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* CARDS ADAPTADOS PARA 100% DA LARGURA DA TELA */
+.card-ocorrencia {
+  width: 100%;
+  background-color: white;
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+  border: 1px solid #e5e7eb;
+}
+
+.imagem-maquina {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.card-ocorrencia h2 {
+  font-size: 18px;
+  margin: 12px 0 6px 0;
+}
+
+.card-ocorrencia p {
+  font-size: 14px;
+  margin-bottom: 6px;
+  color: #4b5563;
+}
+
+.status {
+  font-weight: bold;
+}
+
+/* MARCADORES DE PRIORIDADE */
+.prioridade-critica { color: #dc2626; font-weight: bold; }
+.prioridade-alta { color: #ea580c; font-weight: bold; }
+.prioridade-media { color: #ca8a04; font-weight: bold; }
+.prioridade-baixa { color: #16a34a; font-weight: bold; }
+
+/* BOTÃO DE DETALHES AMPLO */
+.botao-detalhes {
+  width: 100%;
+  height: 48px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 8px;
+  background-color: #1f2937;
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* ENHANCEMENT SE O USUÁRIO ABRIR EM MONITOR GRANDE (DESKTOP) */
+@media (min-width: 768px) {
+  .cabecalho {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 20px 40px;
+  }
+  .logo { font-size: 26px; }
+  .menu { width: auto; overflow-x: visible; }
+  .menu a { font-size: 15px; }
+  .conteudo { padding: 32px 40px; }
+  h1 { font-size: 28px; }
+  .resumo { display: flex; gap: 16px; }
+  .resumo-card { width: 220px; }
+  .filtros { flex-direction: row; }
+  .grupo-busca { flex: 2; }
+  .grupo-selecoes { flex: 3; }
+  .lista-ocorrencias { flex-direction: row; flex-wrap: wrap; gap: 20px; }
+  .card-ocorrencia { width: calc(33.333% - 14px); min-width: 280px; }
+}

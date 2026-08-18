@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Sistema de Ocorrências - Fio de Ouro</title>
+    
+    <!-- Configurações Obrigatórias do PWA -->
+    <link rel="manifest" href="manifest.webmanifest" />
+    <meta name="theme-color" content="#1f2937" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Fio de Ouro" />
+    
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <header class="cabecalho">
+      <div class="logo">Fio de Ouro</div>
+      <nav class="menu">
+        <a href="#" class="ativo">Dashboard</a>
+        <a href="#">Máquinas</a>
+        <a href="#">Ocorrências</a>
+        <a href="#">Relatórios</a>
+      </nav>
+    </header>
+
+    <!-- Banner de instalação nativo controlado pelo JavaScript -->
+    <div id="bloco-instalacao" style="display: none; padding: 16px; background-color: #374151; text-align: center; box-shadow: inset 0 -2px 5px rgba(0,0,0,0.2);">
+      <p style="color: white; margin-bottom: 10px; font-size: 14px; font-family: sans-serif;">Acesse mais rápido instalando o app no seu celular!</p>
+      <button id="btn-instalar" style="padding: 12px 24px; background-color: #16a34a; color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 14px; width: 100%; max-width: 280px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+        Instalar App Fio de Ouro
+      </button>
+    </div>
+
+    <main class="conteudo">
+      <h1>Ocorrências de Manutenção</h1>
+
+      <!-- Painel de resumos em grade otimizada para mobile -->
+      <section class="resumo">
+        <div class="resumo-card">
+          <h2>12</h2>
+          <p>Ocorrências abertas</p>
+        </div>
+        <div class="resumo-card critica">
+          <h2>4</h2>
+          <p>Prioridade crítica</p>
+        </div>
+        <div class="resumo-card">
+          <h2>5</h2>
+          <p>Em manutenção</p>
+        </div>
+        <div class="resumo-card">
+          <h2>18</h2>
+          <p>Resolvidas</p>
+        </div>
+      </section>
+
+      <!-- Seção de filtros redesenhada com alvos de toque aumentados -->
+      <section class="filtros">
+        <div class="grupo-busca">
+          <input
+            id="campo-busca"
+            type="text"
+            placeholder="Buscar por máquina ou descrição"
+          />
+        </div>
+        <div class="grupo-selecoes">
+          <select id="filtro-status">
+            <option>Todos</option>
+            <option>Aberta</option>
+            <option>Em análise</option>
+            <option>Em manutenção</option>
+            <option>Resolvida</option>
+          </select>
+
+          <select id="filtro-prioridade">
+            <option>Todas</option>
+            <option>Crítica</option>
+            <option>Alta</option>
+            <option>Média</option>
+            <option>Baixa</option>
+          </select>
+        </div>
+      </section>
+
+      <!-- Container onde o JS vai renderizar os cards adaptados -->
+      <section id="lista-ocorrencias" class="lista-ocorrencias"></section>
+    </main>
+
+    <script src="script.js"></script>
+    <script src="./lending.js"></script>
+
+  </body>
+</html>
